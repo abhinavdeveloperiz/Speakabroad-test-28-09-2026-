@@ -30,7 +30,7 @@
 
 <!-- ABOUT STUDY IN INDIA -->
 
-<section class="py-20 bg-white">
+<section class="py-24 bg-white">
 
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
@@ -88,162 +88,38 @@
         </div>
 
         <div class="flex gap-6 overflow-x-auto pb-6 scroll-smooth" data-aos="slide-left">
-
-
-            <!-- kerala -->
+            {% for dest in destinations %}
             <div class="min-w-[280px] h-[420px] relative rounded-xl overflow-hidden shadow-xl group">
 
-                <img src="https://media.cntravellerme.com/photos/65f7d2fe6dc13f3de7946c00/3:2/w_5616,h_3744,c_limit/GettyImages-110051777.jpg"
+                {% if dest.image %}
+                <img src="{{ dest.image.url }}"
                     class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                {% else %}
+                <img src="{% static 'images/enterprice.avif' %}"
+                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                {% endif %}
 
                 <div class="absolute inset-0 bg-black/40"></div>
 
                 <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
 
                     <h3 class="text-2xl font-semibold mb-2">
-                        Kerala
+                        {{ dest.title }}
                     </h3>
 
                     <ul class="text-sm space-y-1">
-                        <li>• High literacy rate</li>
-                        <li>• Quality education institutions</li>
-                        <li>• Safe and student-friendly environment</li>
-                        <li>• Beautiful natural surroundings</li>
-                        <li>• Strong healthcare facilities</li>
+                        {% if dest.highlight1 %}<li>• {{ dest.highlight1 }}</li>{% endif %}
+                        {% if dest.highlight2 %}<li>• {{ dest.highlight2 }}</li>{% endif %}
+                        {% if dest.highlight3 %}<li>• {{ dest.highlight3 }}</li>{% endif %}
+                        {% if dest.highlight4 %}<li>• {{ dest.highlight4 }}</li>{% endif %}
+                        {% if dest.highlight5 %}<li>• {{ dest.highlight5 }}</li>{% endif %}
                     </ul>
 
                 </div>
             </div>
-
-
-
-            <!-- Bangalore -->
-            <div class="min-w-[280px] h-[420px] relative rounded-xl overflow-hidden shadow-xl group">
-
-                <img src="https://pbs.twimg.com/media/ETT4XqTVAAIEsgc.jpg"
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
-
-                <div class="absolute inset-0 bg-black/40"></div>
-
-                <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-
-                    <h3 class="text-2xl font-semibold mb-2">
-                        Mangaluru
-                    </h3>
-
-                    <ul class="text-sm space-y-1">
-                        <li>• Top medical and engineering colleges</li>
-                        <li>• Affordable student living</li>
-                        <li>• Safe and student-friendly city</li>
-                        <li>• Excellent placement opportunities</li>
-                        <li>• Coastal city with pleasant climate</li>
-                    </ul>
-                </div>
-            </div>
-
-
-
-            <!-- Bangalore -->
-            <div class="min-w-[280px] h-[420px] relative rounded-xl overflow-hidden shadow-xl group">
-
-                <img src="https://www.shutterstock.com/image-photo/vidhana-soudha-building-bangalore-india-600nw-2432180915.jpg"
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
-
-                <div class="absolute inset-0 bg-black/40"></div>
-
-                <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-
-                    <h3 class="text-2xl font-semibold mb-2">
-                        Bangalore
-                    </h3>
-
-                    <ul class="text-sm space-y-1">
-                        <li>• IT hub of India</li>
-                        <li>• Top engineering colleges</li>
-                        <li>• Startup ecosystem</li>
-                        <li>• Pleasant climate</li>
-                        <li>• Strong job opportunities</li>
-                    </ul>
-
-                </div>
-            </div>
-
-
-            <!-- Delhi -->
-            <div class="min-w-[280px] h-[420px] relative rounded-xl overflow-hidden shadow-xl group">
-
-                <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5"
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
-
-                <div class="absolute inset-0 bg-black/40"></div>
-
-                <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-
-                    <h3 class="text-2xl font-semibold mb-2">
-                        Delhi
-                    </h3>
-
-                    <ul class="text-sm space-y-1">
-                        <li>• Top universities (DU, JNU)</li>
-                        <li>• Government exam hub</li>
-                        <li>• Cultural diversity</li>
-                        <li>• Networking opportunities</li>
-                        <li>• Rich academic ecosystem</li>
-                    </ul>
-
-                </div>
-            </div>
-
-            <!-- Mumbai -->
-            <div class="min-w-[280px] h-[420px] relative rounded-xl overflow-hidden shadow-xl group">
-
-                <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f"
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
-
-                <div class="absolute inset-0 bg-black/40"></div>
-
-                <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-
-                    <h3 class="text-2xl font-semibold mb-2">
-                        Mumbai
-                    </h3>
-
-                    <ul class="text-sm space-y-1">
-                        <li>• Financial capital of India</li>
-                        <li>• Top commerce colleges</li>
-                        <li>• Media & film industry</li>
-                        <li>• Career exposure</li>
-                        <li>• Vibrant city life</li>
-                    </ul>
-
-                </div>
-            </div>
-
-            <!-- Chennai -->
-            <div class="min-w-[280px] h-[420px] relative rounded-xl overflow-hidden shadow-xl group">
-
-                <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220"
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
-
-                <div class="absolute inset-0 bg-black/40"></div>
-
-                <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-
-                    <h3 class="text-2xl font-semibold mb-2">
-                        Chennai
-                    </h3>
-
-                    <ul class="text-sm space-y-1">
-                        <li>• Top medical colleges</li>
-                        <li>• Strong engineering education</li>
-                        <li>• Affordable living</li>
-                        <li>• Safe student environment</li>
-                        <li>• Rich cultural heritage</li>
-                    </ul>
-
-                </div>
-            </div>
-
+            {% empty %}
+            <p class="text-gray-600">No destinations available right now.</p>
+            {% endfor %}
         </div>
 
     </div>
@@ -269,86 +145,67 @@
         <div class="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 hide-scrollbar"
             data-aos="slide-left">
 
-            <!-- CARD -->
+            {% for c in courses %}
             <div
                 class="flex-shrink-0 w-[280px] md:w-[320px] snap-start group relative rounded-3xl overflow-hidden shadow-lg">
 
-                <img src="https://i.pinimg.com/736x/e5/ae/a1/e5aea16b2d600c2bdd92b7ce26b3edee.jpg" loading="lazy"
-                    class="w-full h-[420px] object-cover transition duration-700 group-hover:scale-110">
 
-                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition"></div>
+                <img src="{{ c.image.url }}" loading="lazy" alt="{{ c.Course_title }}"
+                    class="w-full h-[400px] object-cover transition duration-700 md:group-hover:scale-110">
 
-                <div class="absolute top-6 left-6 z-10">
-                    <h3 class="text-white text-xl font-semibold">
-                        Computer Science
-                    </h3>
-                </div>
 
-                <div class="absolute inset-0 flex items-end p-6 opacity-0 translate-y-10 
-                            group-hover:opacity-100 group-hover:translate-y-0 transition duration-500 z-10">
-
-                    <ul class="text-white text-sm space-y-2">
-                        <li>• AI</li>
-                        <li>• Data Science</li>
-                        <li>• Cyber Security</li>
-                        <li>• Software Eng</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- CARD -->
-            <div
-                class="flex-shrink-0 w-[280px] md:w-[320px] snap-start group relative rounded-3xl overflow-hidden shadow-lg">
-
-                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60"
-                    loading="lazy" class="w-full h-[420px] object-cover transition duration-700 group-hover:scale-110">
-
-                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition"></div>
+                <div class="absolute inset-0 bg-black/40 md:group-hover:bg-black/60 transition"></div>
 
                 <div class="absolute top-6 left-6 z-10">
                     <h3 class="text-white text-xl font-semibold">
-                        Business
+                        {{ c.Course_title }}
                     </h3>
                 </div>
 
-                <div class="absolute inset-0 flex items-end p-6 opacity-0 translate-y-10 
-                            group-hover:opacity-100 group-hover:translate-y-0 transition">
+                <!-- Desktop Hover -->
+                <div class="absolute inset-0 hidden md:flex items-end p-6 opacity-0 translate-y-10
+                    group-hover:opacity-100 group-hover:translate-y-0 transition duration-500 z-10">
 
                     <ul class="text-white text-sm space-y-2">
-                        <li>• MBA</li>
-                        <li>• Finance</li>
-                        <li>• Marketing</li>
-                        <li>• IB</li>
+
+                        {% if c.course1 %}<li>• {{ c.course1 }}</li>{% endif %}
+                        {% if c.course2 %}<li>• {{ c.course2 }}</li>{% endif %}
+                        {% if c.course3 %}<li>• {{ c.course3 }}</li>{% endif %}
+                        {% if c.course4 %}<li>• {{ c.course4 }}</li>{% endif %}
+                        {% if c.course5 %}<li>• {{ c.course5 }}</li>{% endif %}
+                        {% if c.course6 %}<li>• {{ c.course6 }}</li>{% endif %}
+                        {% if c.course7 %}<li>• {{ c.course7 }}</li>{% endif %}
+                        {% if c.course8 %}<li>• {{ c.course8 }}</li>{% endif %}
+                        {% if c.course9 %}<li>• {{ c.course9 }}</li>{% endif %}
+                        {% if c.course10 %}<li>• {{ c.course10 }}</li>{% endif %}
+                        {% if c.course11 %}<li>• {{ c.course11 }}</li>{% endif %}
+                        {% if c.course12 %}<li>• {{ c.course12 }}</li>{% endif %}
+
                     </ul>
                 </div>
-            </div>
 
-            <!-- CARD -->
-            <div
-                class="flex-shrink-0 w-[280px] md:w-[320px] snap-start group relative rounded-3xl overflow-hidden shadow-lg">
+                <!-- Mobile Always Visible -->
+                <div class="absolute bottom-0 left-0 right-0 md:hidden p-4 bg-black/40 z-10">
+                    <ul class="text-white text-xs space-y-1">
 
-                <img src="https://media.istockphoto.com/id/1423990264/photo/diversity-professional-engineer-training-and-discussing-in-robot-development-plant.jpg?s=612x612&w=0&k=20&c=sTjw7wgsNIL2BwTlOkXCKZ9H4uLfYLwsp-DX43-JFeg="
-                    loading="lazy" class="w-full h-[420px] object-cover transition duration-700 group-hover:scale-110">
+                        {% if c.course1 %}<li>• {{ c.course1 }}</li>{% endif %}
+                        {% if c.course2 %}<li>• {{ c.course2 }}</li>{% endif %}
+                        {% if c.course3 %}<li>• {{ c.course3 }}</li>{% endif %}
+                        {% if c.course4 %}<li>• {{ c.course4 }}</li>{% endif %}
+                        {% if c.course5 %}<li>• {{ c.course5 }}</li>{% endif %}
+                        {% if c.course6 %}<li>• {{ c.course6 }}</li>{% endif %}
+                        {% if c.course7 %}<li>• {{ c.course7 }}</li>{% endif %}
+                        {% if c.course8 %}<li>• {{ c.course8 }}</li>{% endif %}
+                        {% if c.course9 %}<li>• {{ c.course9 }}</li>{% endif %}
+                        {% if c.course10 %}<li>• {{ c.course10 }}</li>{% endif %}
+                        {% if c.course11 %}<li>• {{ c.course11 }}</li>{% endif %}
+                        {% if c.course12 %}<li>• {{ c.course12 }}</li>{% endif %}
 
-                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition"></div>
-
-                <div class="absolute top-6 left-6 z-10">
-                    <h3 class="text-white text-xl font-semibold">
-                        Engineering
-                    </h3>
-                </div>
-
-                <div class="absolute inset-0 flex items-end p-6 opacity-0 translate-y-10 
-                            group-hover:opacity-100 group-hover:translate-y-0 transition">
-
-                    <ul class="text-white text-sm space-y-2">
-                        <li>• Mechanical</li>
-                        <li>• Civil</li>
-                        <li>• Electrical</li>
-                        <li>• Robotics</li>
                     </ul>
                 </div>
+
             </div>
+            {% endfor %}
 
         </div>
     </div>
@@ -425,87 +282,6 @@
     </div>
 
 </section>
-
-
-
-
-
-
-
-<section class="py-28 bg-fixed bg-center bg-cover relative"
-    style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644');">
-
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-black/70"></div>
-
-    <div class="relative max-w-7xl mx-auto px-6">
-
-        <h2 class="text-2xl md:text-3xl font-bold text-center text-white mb-16">
-            Popular Courses in India
-        </h2>
-
-        <div class="grid md:grid-cols-3 gap-10">
-
-            <!-- Card 1 -->
-            <div
-                class="backdrop-blur-lg bg-white/10 border border-white/20 p-6 rounded-2xl shadow-lg hover:scale-105 hover:bg-white/20 transition duration-300">
-
-                <h3 class="font-semibold text-xl mb-4 text-white">
-                    Business & Management
-                </h3>
-
-                <ul class="text-gray-200 space-y-2 text-sm">
-                    <li>• BBA / MBA</li>
-                    <li>• Marketing Management</li>
-                    <li>• Human Resource</li>
-                    <li>• International Business</li>
-                </ul>
-
-            </div>
-
-            <!-- Card 2 -->
-            <div
-                class="backdrop-blur-lg bg-white/10 border border-white/20 p-6 rounded-2xl shadow-lg hover:scale-105 hover:bg-white/20 transition duration-300">
-
-                <h3 class="font-semibold text-xl mb-4 text-white">
-                    Engineering
-                </h3>
-
-                <ul class="text-gray-200 space-y-2 text-sm">
-                    <li>• Computer Science</li>
-                    <li>• Mechanical / Civil</li>
-                    <li>• AI & Data Science</li>
-                    <li>• Robotics</li>
-                </ul>
-
-            </div>
-
-            <!-- Card 3 -->
-            <div
-                class="backdrop-blur-lg bg-white/10 border border-white/20 p-6 rounded-2xl shadow-lg hover:scale-105 hover:bg-white/20 transition duration-300">
-
-                <h3 class="font-semibold text-xl mb-4 text-white">
-                    Medical & Health
-                </h3>
-
-                <ul class="text-gray-200 space-y-2 text-sm">
-                    <li>• MBBS / BDS</li>
-                    <li>• Nursing</li>
-                    <li>• Physiotherapy</li>
-                    <li>• Pharmacy</li>
-                </ul>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
 
 
 
@@ -761,6 +537,9 @@
         </div>
     </div>
 </section>
+
+
+
 
 
 <!-- SECTION -->

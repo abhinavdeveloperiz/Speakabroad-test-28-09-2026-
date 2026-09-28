@@ -31,7 +31,7 @@
 
 <!-- ABOUT STUDY ABROAD -->
 
-<section class="py-20 bg-white">
+<section class="py-24 bg-white">
 
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
@@ -84,154 +84,591 @@
 <!-- STUDY DESTINATIONS -->
 
 
-<section id="countries" class="py-24 bg-fixed bg-center bg-cover relative">
+<!-- STUDY DESTINATIONS WITH REACT BITS INFINITESPIRAL -->
+<section id="countries" class="py-16 bg-white relative overflow-hidden">
+    <div class="max-w-7xl relative mx-auto px-4 sm:px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-primary tracking-tight">
+                Popular Study Destinations
+            </h2>
+            <p class="mt-2.5 text-sm md:text-base text-gray-600 max-w-2xl mx-auto">
+                Explore 21+ premier global study destinations. Spin the interactive 3D spiral or click any country card to view key highlights and post-study opportunities.
+            </p>
+        </div>
 
-    <div class="absolute inset-0 bg-white"></div>
+        <!-- 3D INFINITE SPIRAL WRAPPER -->
+        <div id="spiral-view-container" class="relative">
+            <div class="spiral-stage-wrapper" style="background: transparent !important; border: none !important; box-shadow: none !important; border-radius: 0 !important;">
+                <!-- InfiniteSpiral Root Element -->
+                <div id="destinations-infinite-spiral" class="infinite-spiral" style="background: transparent !important;">
+                    <div class="infinite-spiral__stage" role="list" aria-label="Popular study destinations infinite spiral">
+                        {% for dest in destinations %}
+                        <div
+                            class="infinite-spiral__item group"
+                            role="listitem"
+                            tabindex="0"
+                            aria-label="{{ dest.title }}"
+                            data-country="{{ dest.title }}"
+                            data-image="{% if dest.image %}{{ dest.image.url }}{% else %}{% static 'images/enterprice.avif' %}{% endif %}"
+                            data-hl1="{{ dest.highlight1|default:'' }}"
+                            data-hl2="{{ dest.highlight2|default:'' }}"
+                            data-hl3="{{ dest.highlight3|default:'' }}"
+                            data-hl4="{{ dest.highlight4|default:'' }}"
+                            data-hl5="{{ dest.highlight5|default:'' }}"
+                        >
+                            <img
+                                class="infinite-spiral__image"
+                                src="{% if dest.image %}{{ dest.image.url }}{% else %}{% static 'images/enterprice.avif' %}{% endif %}"
+                                alt="{{ dest.title }}"
+                                loading="{% if forloop.counter <= 8 %}eager{% else %}lazy{% endif %}"
+                                draggable="false"
+                            />
+                            
+                            <!-- Card Overlay Gradient -->
+                            <div class="spiral-card-gradient"></div>
+                            
+                            <!-- Card Content -->
+                            <div class="spiral-card-content">
+                                <div class="spiral-card-badge">
+                                    <span>#{{ forloop.counter }}</span>
+                                    <span class="spiral-badge-dot"></span>
+                                </div>
 
-    <div class="relative mx-auto px-6">
-
-        <h2 class="text-2xl md:text-3xl text-center font-bold text-primary mb-16">
-            Popular Study Destinations
-        </h2>
-
-        <div class="flex gap-6 overflow-x-auto pb-6 scroll-smooth">
-
-            <!-- CARD TEMPLATE -->
-            <!-- Austria -->
-            <div class="min-w-[280px] h-[420px] relative rounded-xl overflow-hidden shadow-xl group">
-
-                <img src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2024/01/23152129/halstatt-1-1600x900.jpeg"
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
-
-                <!-- DARK OVERLAY -->
-                <div class="absolute inset-0 bg-black/40"></div>
-
-                <!-- CONTENT -->
-                <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-
-                    <h3 class="text-2xl font-semibold mb-2">
-                        Austria
-                    </h3>
-
-                    <!-- POINTS -->
-                    <ul class="text-sm space-y-1">
-                        <li>• High quality European education</li>
-                        <li>• Low tuition public universities</li>
-                        <li>• Globally recognized degrees</li>
-                        <li>• Strong research & innovation</li>
-                        <li>• Schengen visa benefits</li>
-                    </ul>
-
+                                <div class="spiral-card-info">
+                                    <h3 class="spiral-card-title">
+                                        {{ dest.title }}
+                                    </h3>
+                                    <ul class="spiral-card-highlights">
+                                        {% if dest.highlight1 %}<li>• {{ dest.highlight1 }}</li>{% endif %}
+                                        {% if dest.highlight2 %}<li>• {{ dest.highlight2 }}</li>{% endif %}
+                                        {% if dest.highlight3 %}<li>• {{ dest.highlight3 }}</li>{% endif %}
+                                        {% if dest.highlight4 %}<li>• {{ dest.highlight4 }}</li>{% endif %}
+                                        {% if dest.highlight5 %}<li>• {{ dest.highlight5 }}</li>{% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="text-gray-500 text-center py-20">No destinations available.</div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
-
-
-            <!-- Georgia -->
-            <div class="min-w-[280px] h-[420px] relative rounded-xl overflow-hidden shadow-xl group">
-
-                <img src="https://t3.ftcdn.net/jpg/05/23/33/38/360_F_523333819_u2r3CvlDbLmQy5RaWadGvtpPDVr0rs3g.jpg"
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
-
-                <div class="absolute inset-0 bg-black/40"></div>
-
-                <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-
-                    <h3 class="text-2xl font-semibold mb-2">
-                        Georgia
-                    </h3>
-
-                    <ul class="text-sm space-y-1">
-                        <li>• Affordable tuition fees</li>
-                        <li>• Fast growing destination</li>
-                        <li>• High visa approval rate</li>
-                        <li>• IELTS not mandatory</li>
-                        <li>• Student friendly</li>
-                    </ul>
-
-                </div>
-            </div>
-
-
-            <!-- Netherlands -->
-            <div class="min-w-[280px] h-[420px] relative rounded-xl overflow-hidden shadow-xl group">
-
-                <img src="https://media.istockphoto.com/id/1143539287/photo/channel-in-amsterdam-netherlands-houses-river-amstel.jpg?s=612x612&w=0&k=20&c=tYhG0NPq1eCGP3JgwFrphJK2VQ9mVHmEHZXUudzNCGE="
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
-
-                <div class="absolute inset-0 bg-black/40"></div>
-
-                <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-
-                    <h3 class="text-2xl font-semibold mb-2">
-                        Netherlands
-                    </h3>
-
-                    <ul class="text-sm space-y-1">
-                        <li>• English speaking country</li>
-                        <li>• World class universities</li>
-                        <li>• Strong job market</li>
-                        <li>• Post study work options</li>
-                        <li>• High visa success</li>
-                    </ul>
-
-                </div>
-            </div>
-
-
-            <!-- Denmark -->
-            <div class="min-w-[280px] h-[420px] relative rounded-xl overflow-hidden shadow-xl group">
-
-                <img src="https://media.gettyimages.com/id/1587697699/photo/multi-colored-vibrant-houses-along-nyhavn-harbour-on-a-sunny-day-with-clear-blue-sky.jpg?s=612x612&w=gi&k=20&c=VIbQIhmtqSOb62TeS1cmtE3dXpGUyn3xqlRBpOyTSCs="
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
-
-                <div class="absolute inset-0 bg-black/40"></div>
-
-                <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-
-                    <h3 class="text-2xl font-semibold mb-2">
-                        Denmark
-                    </h3>
-
-                    <ul class="text-sm space-y-1">
-                        <li>• Modern education system</li>
-                        <li>• Research based learning</li>
-                        <li>• Scholarships available</li>
-                        <li>• High quality of life</li>
-                        <li>• Work visa options</li>
-                    </ul>
-
-                </div>
-            </div>
-
-
-            <!-- Italy -->
-            <div class="min-w-[280px] h-[420px] relative rounded-xl overflow-hidden shadow-xl group">
-
-                <img src="https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2024/03/18170044/venice.jpeg"
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-500">
-
-                <div class="absolute inset-0 bg-black/40"></div>
-
-                <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-
-                    <h3 class="text-2xl font-semibold mb-2">
-                        Italy
-                    </h3>
-
-                    <ul class="text-sm space-y-1">
-                        <li>• Historic universities</li>
-                        <li>• Affordable tuition</li>
-                        <li>• Scholarships available</li>
-                        <li>• English programs</li>
-                        <li>• Schengen benefits</li>
-                    </ul>
-
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
+
+<!-- DESTINATION DETAILS MODAL -->
+<div id="destination-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="destination-modal-card" class="relative w-full max-w-lg bg-white rounded-3xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 border border-gray-100">
+        <!-- Close Button -->
+        <button id="destination-modal-close" type="button" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center transition">
+            <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+
+        <!-- Modal Header Image -->
+        <div class="relative h-56 sm:h-64 overflow-hidden">
+            <img id="modal-dest-image" src="" alt="" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+            <div class="absolute bottom-4 left-6 right-6">
+                <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-600 text-white uppercase tracking-wider mb-1">
+                    Study in
+                </span>
+                <h3 id="modal-dest-title" class="text-2xl sm:text-3xl font-extrabold text-white uppercase tracking-wide"></h3>
+            </div>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="p-6">
+            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Key Highlights & Advantages</h4>
+            <ul id="modal-dest-highlights" class="space-y-2.5 mb-6">
+                <!-- Dynamically injected -->
+            </ul>
+
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="flex-1 text-center py-3 px-4 rounded-xl bg-primary hover:bg-blue-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition">
+                    Book Free Consultation
+                </a>
+                <a href="https://wa.me/917994432128" target="_blank" class="py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-sm shadow-md hover:shadow-lg transition flex items-center gap-1.5">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- COMPONENT CSS: React Bits InfiniteSpiral & Stage Styling -->
+<style>
+/* 3D Stage Wrapper - Seamless blending with the page */
+.spiral-stage-wrapper {
+  position: relative !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* React Bits InfiniteSpiral Container */
+.infinite-spiral {
+  position: relative;
+  width: 100%;
+  height: 620px;
+  min-height: 480px;
+  overflow: hidden;
+  isolation: isolate;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  /* Top and bottom smooth fade to dissolve naturally into page background */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.infinite-spiral__stage {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.infinite-spiral__item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: var(--infinite-spiral-card-width, 165px);
+  height: var(--infinite-spiral-card-height, 235px);
+  overflow: hidden;
+  border: 2.5px solid #ffffff;
+  border-radius: var(--infinite-spiral-card-radius, 16px);
+  background: #0f172a;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.18), 0 4px 10px rgba(15, 23, 42, 0.1);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+  text-decoration: none;
+  cursor: pointer;
+  transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.infinite-spiral__item:hover {
+  border-color: #60a5fa !important;
+  box-shadow: 0 24px 50px -10px rgba(37, 99, 235, 0.5), 0 0 25px rgba(59, 130, 246, 0.35) !important;
+}
+
+.infinite-spiral__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  pointer-events: none;
+}
+
+.spiral-card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.98) 0%, rgba(15, 23, 42, 0.85) 60%, rgba(15, 23, 42, 0.25) 85%, transparent 100%);
+  pointer-events: none;
+}
+
+.spiral-card-content {
+  position: absolute;
+  inset: 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+  color: #ffffff;
+  user-select: none;
+}
+
+.spiral-card-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spiral-card-badge > span:first-child {
+  padding: 2px 7px;
+  border-radius: 9999px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(37, 99, 235, 0.85);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  border: 1px solid rgba(147, 197, 253, 0.5);
+}
+
+.spiral-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: #34d399;
+  box-shadow: 0 0 8px #34d399;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.infinite-spiral__item:hover .spiral-badge-dot {
+  transform: scale(1.35);
+  box-shadow: 0 0 12px #34d399, 0 0 4px #ffffff;
+}
+
+.spiral-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.spiral-card-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.spiral-card-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 2px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5px;
+}
+
+.spiral-card-highlights li {
+  font-size: 9.5px;
+  line-height: 1.25;
+  color: #f1f5f9;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .infinite-spiral {
+    height: 520px;
+    min-height: 420px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .infinite-spiral__item {
+    transition: none;
+  }
+}
+</style>
+
+<!-- COMPONENT JS: React Bits InfiniteSpiral Implementation -->
+<script>
+(function() {
+  const root = document.getElementById('destinations-infinite-spiral');
+  if (!root) return;
+
+  const cardNodes = Array.from(root.querySelectorAll('.infinite-spiral__item'));
+  if (cardNodes.length === 0) return;
+
+  // React Bits InfiniteSpiral configuration tuned for optimal card alignment & spacing
+  const config = {
+    speed: 0.38,
+    direction: 'up',
+    animationMode: 'all',
+    radius: 410,            // Generous helix radius to separate cards and eliminate overlap
+    cardWidth: 165,
+    cardHeight: 235,
+    verticalSpacing: 68,    // Clean, aligned vertical distance between cards
+    perspective: 1100,
+    cardsPerTurn: 8,        // 8 cards per full turn gives 45° spacing for clear breathing room
+    rotation: 0,
+    cardTilt: 0,
+    cardRadius: 16,
+    centerScale: 1.18,      // Focuses center card without excessive width inflation
+    edgeFade: 0.65,         // Smoothly fades distant cards
+    edgeBlur: 3.5,
+    pauseOnHover: true
+  };
+
+  root.style.perspective = config.perspective + 'px';
+  root.style.setProperty('--infinite-spiral-card-width', config.cardWidth + 'px');
+  root.style.setProperty('--infinite-spiral-card-height', config.cardHeight + 'px');
+  root.style.setProperty('--infinite-spiral-card-radius', config.cardRadius + 'px');
+
+  let progress = 0;
+  let targetProgress = 0;
+  let autoSpeed = 0;
+  let isHovered = false;
+  let isVisible = true;
+  let isDragging = false;
+  let lastPointerY = 0;
+  let dragMoved = false;
+
+  const clamp = (val, min, max) => Math.min(Math.max(val, min), max);
+  const modulo = (val, div) => ((val % div) + div) % div;
+  const smoothstep = (min, max, val) => {
+    const x = clamp((val - min) / (max - min || 1), 0, 1);
+    return x * x * (3 - 2 * x);
+  };
+
+  let bounds = root.getBoundingClientRect();
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const scrollSpeedMultiplier = Math.max(config.speed, 0) / 0.42;
+  let lastScrollY = window.scrollY;
+
+  const resizeObserver = new ResizeObserver(() => {
+    bounds = root.getBoundingClientRect();
+  });
+  resizeObserver.observe(root);
+
+  const intersectionObserver = new IntersectionObserver(([entry]) => {
+    isVisible = entry.isIntersecting;
+  }, { threshold: 0.05 });
+  intersectionObserver.observe(root);
+
+  // Scroll listener
+  const handleWindowScroll = () => {
+    const nextScrollY = window.scrollY;
+    const scrollDelta = nextScrollY - lastScrollY;
+    lastScrollY = nextScrollY;
+    if (!isVisible || scrollDelta === 0) return;
+    targetProgress += clamp(
+      (scrollDelta * scrollSpeedMultiplier) / Math.max(config.verticalSpacing * 2.2, 1),
+      -1.5,
+      1.5
+    );
+  };
+  window.addEventListener('scroll', handleWindowScroll, { passive: true });
+
+  // Stage element for responsive hover & scrolling
+  const stage = root.closest('.spiral-stage-wrapper') || root;
+  let lastWheelTime = 0;
+
+  // Manual wheel scroll: smooth and natural travel in both directions
+  stage.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const wheelDelta = Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+    targetProgress += wheelDelta * 0.0035;
+    lastWheelTime = performance.now();
+  }, { passive: false });
+
+  // Hover detection: immediately pause auto-rotation when cursor is over the stage/cards, resume when leaving
+  const handleHoverEnter = () => { isHovered = true; };
+  const handleHoverLeave = () => { isHovered = false; };
+  stage.addEventListener('mouseenter', handleHoverEnter);
+  stage.addEventListener('mouseleave', handleHoverLeave);
+  stage.addEventListener('pointerenter', handleHoverEnter);
+  stage.addEventListener('pointerleave', handleHoverLeave);
+  root.addEventListener('mouseenter', handleHoverEnter);
+  root.addEventListener('mouseleave', handleHoverLeave);
+
+  // Pointer drag interactions (mouse & touch)
+  let startPointerY = 0;
+
+  root.addEventListener('pointerdown', (event) => {
+    if (event.button !== 0 && event.pointerType === 'mouse') return;
+    isDragging = true;
+    dragMoved = false;
+    lastPointerY = event.clientY;
+    startPointerY = event.clientY;
+    targetProgress = progress;
+    try {
+      root.setPointerCapture(event.pointerId);
+    } catch (e) {}
+    root.style.cursor = 'grabbing';
+  });
+
+  root.addEventListener('pointermove', (event) => {
+    if (!isDragging) return;
+    const pointerDelta = event.clientY - lastPointerY;
+    lastPointerY = event.clientY;
+    if (Math.abs(event.clientY - startPointerY) > 4) dragMoved = true;
+    targetProgress -= pointerDelta / Math.max(config.verticalSpacing * 1.2, 1);
+  });
+
+  const stopDragging = (event) => {
+    if (!isDragging) return;
+    isDragging = false;
+    try {
+      if (root.hasPointerCapture(event.pointerId)) {
+        root.releasePointerCapture(event.pointerId);
+      }
+    } catch (e) {}
+    root.style.cursor = 'grab';
+  };
+
+  root.addEventListener('pointerup', stopDragging);
+  root.addEventListener('pointercancel', stopDragging);
+
+  // Animation render loop
+  let frameId;
+  let previousTime = performance.now();
+
+  function render(time) {
+    const delta = Math.min((time - previousTime) / 1000, 0.05);
+    previousTime = time;
+
+    const isCurrentlyHovered = isHovered || stage.matches(':hover') || root.matches(':hover');
+    const motionPaused = isDragging || (config.pauseOnHover && isCurrentlyHovered);
+    const directionMultiplier = config.direction === 'down' ? -1 : 1;
+    const desiredAutoSpeed = isVisible && !reducedMotion.matches && !motionPaused
+      ? config.speed * directionMultiplier
+      : 0;
+
+    if (motionPaused) {
+      // Rotation stops immediately when hovering on the animation
+      autoSpeed = 0;
+      if (!isDragging && (performance.now() - lastWheelTime > 300)) {
+        targetProgress = progress;
+      }
+    } else {
+      // Smooth acceleration back to normal speed after hover ends
+      const speedBlend = 1 - Math.exp(-delta * 3.5);
+      autoSpeed += (desiredAutoSpeed - autoSpeed) * speedBlend;
+      targetProgress += autoSpeed * delta;
+    }
+
+    // Follow blend for responsive tracking of user drag and wheel scroll
+    const followBlend = 1 - Math.exp(-delta * (isDragging ? 26 : 14));
+    progress += (targetProgress - progress) * followBlend;
+
+    const count = cardNodes.length;
+    const half = count / 2;
+    const width = Math.max(bounds.width, 1);
+    const height = Math.max(bounds.height, 1);
+
+    // Responsive fit and radius tuned for optimal horizontal card distance
+    const fit = Math.min(1, width / (config.cardWidth * 2.8), height / (config.cardHeight * 2.2));
+    const responsiveRadius = Math.min(config.radius, Math.max(110, width * 0.34)) * fit;
+    const fadeStart = clamp(1 - config.edgeFade, 0, 0.98);
+    const turnSize = Math.max(config.cardsPerTurn, 1);
+
+    cardNodes.forEach((card, index) => {
+      let offset = index - progress;
+      offset = modulo(offset + half, count) - half;
+
+      // Distance from center along spiral
+      const edge = Math.min(Math.abs(offset) / Math.max(turnSize * 0.75, 1), 1);
+      const opacity = 1 - smoothstep(fadeStart, 1, edge);
+      const focus = 1 - Math.min(Math.abs(offset) / Math.max(turnSize * 0.55, 1), 1);
+      const scale = (1 + (config.centerScale - 1) * focus) * fit;
+      
+      const angle = offset * (360 / turnSize) + config.rotation;
+      const angleRadians = (angle * Math.PI) / 180;
+      const x = Math.sin(angleRadians) * responsiveRadius;
+      const z = Math.cos(angleRadians) * responsiveRadius;
+      const depthScale = clamp(config.perspective / Math.max(config.perspective - z * 0.65, 1), 0.8, 1.25);
+      const visualScale = scale * depthScale;
+      const depth = (z / Math.max(responsiveRadius, 1) + 1) / 2;
+      const blur = config.edgeBlur * smoothstep(0.45, 1, edge);
+
+      // Interactive hover effect on each card
+      const isCardHovered = card.matches(':hover');
+      const hoverScale = isCardHovered ? 1.08 : 1.0;
+      const finalScale = visualScale * hoverScale;
+
+      card.style.transform = `translate(-50%, -50%) translate3d(${x.toFixed(2)}px, ${(offset * config.verticalSpacing * fit).toFixed(2)}px, 0) rotateZ(${config.cardTilt}deg) scale(${finalScale.toFixed(3)})`;
+      card.style.opacity = isCardHovered ? '1' : opacity.toFixed(3);
+      card.style.filter = (isCardHovered || blur <= 0.1) ? 'none' : `blur(${blur.toFixed(1)}px)`;
+      card.style.zIndex = isCardHovered ? '999999' : String(Math.round(depth * 100000) + index);
+      card.style.pointerEvents = (isCardHovered || opacity > 0.25) ? 'auto' : 'none';
+    });
+
+    frameId = requestAnimationFrame(render);
+  }
+
+  frameId = requestAnimationFrame(render);
+
+  // Card click -> Detail modal
+  const modal = document.getElementById('destination-modal');
+  const modalCard = document.getElementById('destination-modal-card');
+  const modalClose = document.getElementById('destination-modal-close');
+  const modalImage = document.getElementById('modal-dest-image');
+  const modalTitle = document.getElementById('modal-dest-title');
+  const modalHighlights = document.getElementById('modal-dest-highlights');
+
+  function openModal(card) {
+    if (dragMoved) {
+      dragMoved = false;
+      return;
+    }
+    const country = card.getAttribute('data-country');
+    const image = card.getAttribute('data-image');
+    const hls = [
+      card.getAttribute('data-hl1'),
+      card.getAttribute('data-hl2'),
+      card.getAttribute('data-hl3'),
+      card.getAttribute('data-hl4'),
+      card.getAttribute('data-hl5')
+    ].filter(Boolean);
+
+    modalTitle.textContent = country;
+    modalImage.src = image;
+    modalImage.alt = country;
+
+    modalHighlights.innerHTML = '';
+    hls.forEach(hl => {
+      const li = document.createElement('li');
+      li.className = 'flex items-start gap-2.5 text-xs sm:text-sm text-gray-700';
+      li.innerHTML = `
+        <span class="flex-shrink-0 w-4 h-4 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] mt-0.5 font-bold">✓</span>
+        <span>${hl}</span>
+      `;
+      modalHighlights.appendChild(li);
+    });
+
+    modal.classList.remove('pointer-events-none', 'opacity-0');
+    modal.classList.add('opacity-100');
+    modalCard.classList.remove('scale-95');
+    modalCard.classList.add('scale-100');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.classList.remove('opacity-100');
+    modalCard.classList.add('scale-95');
+    modalCard.classList.remove('scale-100');
+    document.body.style.overflow = '';
+  }
+
+  cardNodes.forEach(card => {
+    card.addEventListener('click', () => openModal(card));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(card);
+      }
+    });
+  });
+
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('pointer-events-none')) {
+      closeModal();
+    }
+  });
+})();
+</script>
 
 
 
@@ -256,7 +693,7 @@
                 class="flex-shrink-0 w-[280px] md:w-[320px] snap-start group relative rounded-3xl overflow-hidden shadow-lg">
 
                 <img src="{{ c.image.url }}" loading="lazy" alt="{{ c.Course_title }}"
-                    class="w-full h-[520px] object-cover transition duration-700 md:group-hover:scale-110">
+                    class="w-full h-[400px] object-cover transition duration-700 md:group-hover:scale-110">
 
                 <div class="absolute inset-0 bg-black/40 md:group-hover:bg-black/60 transition"></div>
 
@@ -354,12 +791,149 @@
 </section>
 
 
+<section class="py-24 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Heading -->
+        <div class="text-center mb-16">
+
+            <h2 class="text-3xl md:text-5xl font-bold text-blue-600 mb-5">
+                What We Offer
+            </h2>
+
+        
+
+        </div>
+
+        <!-- Services -->
+        <div class="space-y-10">
+
+            <!-- Item -->
+            <div class="border-b border-gray-200 pb-8">
+
+                <h3 class="text-2xl font-semibold text-blue-700 mb-4">
+                    Career Planning
+                </h3>
+
+                <p class="text-gray-700 leading-relaxed text-justify mb-8 text-lg">
+                    Receive personalized career counseling designed to help you identify the
+                    best academic pathway based on your strengths, interests, and long-term
+                    professional goals. Our experts guide you in making informed decisions
+                    for a successful future.
+                </p>
+
+            </div>
+
+            <!-- Item -->
+            <div class="border-b border-gray-200 pb-8">
+
+                <h3 class="text-2xl font-semibold text-blue-700 mb-4">
+                    University & Course Selection
+                </h3>
+
+                <p class="text-gray-700 leading-relaxed text-justify mb-8 text-lg">
+                    Get expert assistance in choosing the right universities and programs
+                    that align with your academic background, career ambitions, financial
+                    plans, and preferred study destination. We help you compare options
+                    and select the best fit for your future.
+                </p>
+
+            </div>
+
+            <!-- Item -->
+            <div class="border-b border-gray-200 pb-8">
+
+                <h3 class="text-2xl font-semibold text-blue-700 mb-4">
+                    Education Loan Assistance
+                </h3>
+
+                <p class="text-gray-700 leading-relaxed text-justify mb-8 text-lg">
+                    We provide guidance and support in securing education loans through
+                    trusted financial institutions. From understanding eligibility criteria
+                    to preparing documentation, we simplify the entire loan process for
+                    students and parents.
+                </p>
+
+            </div>
+
+            <!-- Item -->
+            <div class="border-b border-gray-200 pb-8">
+
+                <h3 class="text-2xl font-semibold text-blue-700 mb-4">
+                    Application & Documentation Support
+                </h3>
+
+                <p class="text-gray-700 leading-relaxed text-justify mb-8 text-lg">
+                    Our team offers complete assistance with university applications,
+                    SOPs, LORs, and documentation to ensure accurate submissions within
+                    deadlines. We help maximize your chances of admission with a smooth
+                    and organized application process.
+                </p>
+
+            </div>
+
+            <!-- Item -->
+            <div class="border-b border-gray-200 pb-8">
+
+                <h3 class="text-2xl font-semibold text-blue-700 mb-4">
+                    Visa Guidance & Processing
+                </h3>
+
+                <p class="text-gray-700 leading-relaxed text-justify mb-8 text-lg">
+                    Receive professional support throughout the student visa process,
+                    including document verification, interview preparation, and
+                    application filing. We ensure every step is handled carefully
+                    for a hassle-free visa approval experience.
+                </p>
+
+            </div>
+
+            <!-- Item -->
+            <div class="border-b border-gray-200 pb-8">
+
+                <h3 class="text-2xl font-semibold text-blue-700 mb-4">
+                    Pre-Departure Orientation
+                </h3>
+
+                <p class="text-gray-700 leading-relaxed text-justify mb-8 text-lg">
+                    Prepare confidently for your international journey with our
+                    pre-departure sessions. We provide essential information about
+                    travel, accommodation, cultural adaptation, safety tips, and
+                    student life abroad to help you settle comfortably.
+                </p>
+
+            </div>
+
+            <!-- Item -->
+            <div>
+
+                <h3 class="text-2xl font-semibold text-blue-700 mb-4">
+                    Post-Arrival Support Services
+                </h3>
+
+                <p class="text-gray-700 leading-relaxed text-justify mb-8 text-lg">
+                    Our support continues even after you reach your destination.
+                    From accommodation assistance and airport pickup arrangements
+                    to helping you adapt to your new environment, we ensure a smooth
+                    transition into your student life abroad.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 <!-- SECTION -->
 <section class="animated-bg py-28 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
 
         <!-- HEADING -->
-        <div class="text-center mb-20">
+        <div class="text-center mb-16">
             <h2 class="text-2xl md:text-3xl font-bold text-white tracking-tight">
                 Students Graduated Abroad
             </h2>
@@ -504,7 +1078,7 @@
 
 <!-- CTA -->
 
-<section class="bg-primary py-20 text-center text-white">
+<section class="bg-primary py-24 text-center text-white">
 
     <div class="max-w-4xl mx-auto px-6">
 

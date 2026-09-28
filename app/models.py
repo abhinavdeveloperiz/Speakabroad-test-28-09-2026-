@@ -70,7 +70,8 @@ class FAQ(models.Model):
 
 
 class Testimonial(models.Model):
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/',null=True, blank=True)
+    rating = models.IntegerField()
     name = models.CharField(max_length=100)
     feedback = models.TextField()
     choice = [
@@ -164,3 +165,20 @@ class Destination(models.Model):
     class Meta:
         verbose_name = "Destination"
         verbose_name_plural = "Destinations"
+
+
+class University(models.Model):
+    country_choice = [
+        ('India', 'India'),
+        ('Abroad', 'Abroad'),
+    ]
+    country = models.CharField(max_length=20, choices=country_choice,null=True, blank=True)
+    image = models.ImageField(upload_to='universities/')
+ 
+
+    def __str__(self):
+        return f"University Image: {self.id}"
+    
+    class Meta:
+        verbose_name = "University"
+        verbose_name_plural = "Universities"

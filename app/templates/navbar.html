@@ -2,17 +2,14 @@
 
 <!-- NAVBAR -->
 
-<nav id="navbar"
-    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-dark/40 backdrop-blur-lg">
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-dark/40 backdrop-blur-lg">
 
     <div id="nav-container"
         class="max-w-7xl mx-auto px-6 flex justify-between items-center transition-all duration-300 h-24">
 
         <!-- Logo -->
         <a href="/" class="flex items-center">
-            <img id="logo"
-                src="{% static 'images/logo.png' %}"
-                class="h-16 transition-all duration-300">
+            <img id="logo" src="{% static 'images/logo.png' %}" class="h-16 transition-all duration-300">
         </a>
 
         <!-- Desktop Menu -->
@@ -24,9 +21,13 @@
 
             <li><a href="{% url 'about' %}" class="nav-link {% if 'about' in current %}active{% endif %}">About</a></li>
 
-            <li><a href="{% url 'Study_in_india' %}" class="nav-link {% if 'india' in current %}active{% endif %}">Study in India</a></li>
+            <li><a href="{% url 'Study_in_abroad' %}"
+                    class="nav-link {% if 'abroad' in current %}active{% endif %}">Study Abroad</a></li>
 
-            <li><a href="{% url 'Study_in_abroad' %}" class="nav-link {% if 'abroad' in current %}active{% endif %}">Study Abroad</a></li>
+
+            <li><a href="{% url 'Study_in_india' %}" class="nav-link {% if 'india' in current %}active{% endif %}">Study
+                    in India</a></li>
+
 
             <li><a href="{% url 'faq' %}" class="nav-link {% if 'faq' in current %}active{% endif %}">FAQ</a></li>
 
@@ -36,7 +37,7 @@
 
         <!-- CTA -->
         <a href="/contact"
-            class="hidden md:flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-lg hover:bg-secondary transition">
+            class="hidden md:flex items-center gap-2 bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition">
             <i class="fa-solid fa-paper-plane"></i>
             Contact
         </a>
@@ -71,8 +72,8 @@
 
         <li><a href="{% url 'home' %}" class="hover:text-secondary">Home</a></li>
         <li><a href="{% url 'about' %}" class="hover:text-secondary">About</a></li>
-        <li><a href="{% url 'Study_in_india' %}" class="hover:text-secondary">Study in India</a></li>
         <li><a href="{% url 'Study_in_abroad' %}" class="hover:text-secondary">Study Abroad</a></li>
+        <li><a href="{% url 'Study_in_india' %}" class="hover:text-secondary">Study in India</a></li>
         <li><a href="{% url 'faq' %}" class="hover:text-secondary">FAQ</a></li>
         <li><a href="/contact" class="hover:text-secondary">Contact</a></li>
 
@@ -124,50 +125,50 @@
 
 <!-- SCRIPT -->
 <script>
-document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener("DOMContentLoaded", () => {
 
-    const navbar = document.getElementById("navbar");
-    const navContainer = document.getElementById("nav-container");
-    const logo = document.getElementById("logo");
+        const navbar = document.getElementById("navbar");
+        const navContainer = document.getElementById("nav-container");
+        const logo = document.getElementById("logo");
 
-    const openBtn = document.getElementById("menu-btn");
-    const closeBtn = document.getElementById("close-menu");
-    const menu = document.getElementById("mobile-menu");
-    const overlay = document.getElementById("overlay");
+        const openBtn = document.getElementById("menu-btn");
+        const closeBtn = document.getElementById("close-menu");
+        const menu = document.getElementById("mobile-menu");
+        const overlay = document.getElementById("overlay");
 
-    // Scroll Effect
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add("bg-dark/80", "shadow-lg");
-            navContainer.classList.replace("h-24", "h-16");
-            logo.classList.replace("h-16", "h-10");
-        } else {
-            navbar.classList.remove("bg-dark/80", "shadow-lg");
-            navContainer.classList.replace("h-16", "h-24");
-            logo.classList.replace("h-10", "h-16");
+        // Scroll Effect
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add("bg-dark/80", "shadow-lg");
+                navContainer.classList.replace("h-24", "h-16");
+                logo.classList.replace("h-16", "h-10");
+            } else {
+                navbar.classList.remove("bg-dark/80", "shadow-lg");
+                navContainer.classList.replace("h-16", "h-24");
+                logo.classList.replace("h-10", "h-16");
+            }
+        });
+
+        // Open Menu
+        function openMenu() {
+            menu.classList.remove("translate-x-full");
+            menu.classList.add("translate-x-0");
+            overlay.classList.remove("hidden");
+            document.body.classList.add("overflow-hidden");
         }
+
+        // Close Menu
+        function closeMenu() {
+            menu.classList.remove("translate-x-0");
+            menu.classList.add("translate-x-full");
+            overlay.classList.add("hidden");
+            document.body.classList.remove("overflow-hidden");
+        }
+
+        // Events
+        if (openBtn) openBtn.addEventListener("click", openMenu);
+        if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+        if (overlay) overlay.addEventListener("click", closeMenu);
+
     });
-
-    // Open Menu
-    function openMenu() {
-        menu.classList.remove("translate-x-full");
-        menu.classList.add("translate-x-0");
-        overlay.classList.remove("hidden");
-        document.body.classList.add("overflow-hidden");
-    }
-
-    // Close Menu
-    function closeMenu() {
-        menu.classList.remove("translate-x-0");
-        menu.classList.add("translate-x-full");
-        overlay.classList.add("hidden");
-        document.body.classList.remove("overflow-hidden");
-    }
-
-    // Events
-    if (openBtn) openBtn.addEventListener("click", openMenu);
-    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
-    if (overlay) overlay.addEventListener("click", closeMenu);
-
-});
 </script>

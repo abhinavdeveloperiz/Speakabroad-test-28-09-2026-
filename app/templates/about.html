@@ -30,14 +30,14 @@
 
 <!-- ABOUT SECTION -->
 
-<section class="py-20 bg-white">
+<section class="py-24 bg-white">
 
 
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
 
         <div>
 
-            <img src="https://echoesglobaleducation.com/wp-content/uploads/2023/06/education.gif"
+            <img src="https://www.royalcaribbean.com/media-assets/pmc/content/dam/shore-x/paris-le-havre-leh/lh17-paris-sightseeing-without-lunch/stock-photo-skyline-of-paris-with-eiffel-tower-at-sunset-in-paris-france-eiffel-tower-is-one-of-the-most-752725282.jpg?w=1920"
                 class="rounded-xl w-full h-[350px] md:h-[450px] object-cover" data-aos="flip-right">
 
         </div>
@@ -50,26 +50,41 @@
 
             <p class="text-gray-600 mb-6 text-justify">
 
-                SpeakAbroad is a trusted education consultancy dedicated to helping students
-                turn their dreams of international education into reality. Since 2014,
-                we have supported aspiring learners at every stage of their journey —
-                from selecting the right course and university to exam preparation,
-                documentation guidance, and visa assistance.
+                SpeakAbroad is a trusted education consultancy dedicated to helping students turn their dreams of
+                international education into reality. Since 2014, we have supported aspiring learners at every stage of
+                their journey — from selecting the right course and university to exam preparation, documentation
+                guidance, and visa assistance.
 
             </p>
 
             <p class="text-gray-600 mb-6 text-justify">
 
-                Our goal is to help each student achieve their global academic ambitions
-                through expert counselling, personalized support, and a seamless admission process.
+                Our goal is to help each student achieve their global academic ambitions through expert counselling,
+                personalized support, and a seamless admission process.
 
             </p>
 
             <p class="text-gray-600 text-justify">
 
-                With SpeakAbroad, you don’t just apply to universities —
-                you build a clear pathway toward a brighter and borderless future.
+                At SpeakAbroad, we inspire students to pursue their aspirations with clarity, confidence, and
+                determination. With professional expertise and genuine care at every step, we ensure you are fully
+                prepared for a successful future abroad.
 
+            </p>
+
+            <p class="text-gray-600 text-justify">
+
+                We understand that studying abroad is more than an academic decision — it is a life-changing experience.
+                That’s why we focus on careful planning, informed choices, and honest guidance tailored to your
+                strengths and interests.
+            </p>
+
+            <p class="text-gray-600 text-justify">
+                Our experienced team stays updated with global education trends, admission requirements, and visa
+                regulations to provide accurate and reliable advice. From your first counselling session to your
+                departure and beyond, we remain committed to your success.
+                With SpeakAbroad, you don’t just apply to universities — you build a clear pathway toward a brighter,
+                borderless future.
             </p>
 
         </div>
@@ -93,7 +108,7 @@
 
                 <div class="relative overflow-hidden rounded-3xl shadow-xl">
                     <img src="{{ ceo.image.url }}"
-                        class="w-full h-[420px] object-cover object-top transition duration-700 group-hover:scale-110">
+                        class="w-full h-[420px] object-cover transition duration-700 group-hover:scale-110">
                 </div>
             </div>
 
@@ -152,7 +167,7 @@
 
                 <div class="relative overflow-hidden rounded-3xl shadow-xl ">
                     <img src="{{ coo.image.url }}"
-                        class="w-full h-[420px] object-cover object-top transition duration-700 group-hover:scale-110">
+                        class="w-full h-[420px] object-cover transition duration-700 group-hover:scale-110">
                 </div>
             </div>
 
@@ -172,7 +187,8 @@
                     past uncertainty and taking decisive steps toward global education.
                 </p>
 
-                <p class="text-gray-600 leading-relaxed mb-6 text-justify"> By offering transparent guidance and practical direction,
+                <p class="text-gray-600 leading-relaxed mb-6 text-justify"> By offering transparent guidance and
+                    practical direction,
                     we aim to develop individuals who are not
                     only academically prepared but also adaptable, independent, and equipped to succeed in an
                     international environment. We believe every dream deserves an appropriate pathway-and we strive to
@@ -192,14 +208,52 @@
 </section>
 
 
+
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+
+        <!-- Heading -->
+        <h2 class="text-2xl md:text-3xl font-bold text-blue-500 mb-4">
+            Accepted Language Tests
+        </h2>
+
+        <p class="text-gray-500 mb-16 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            We prepare students for internationally recognized language
+            proficiency exams required for studying abroad.
+        </p>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-5 gap-8">
+
+            {% for l in languages %}
+            <div class="group relative ">
+
+
+                <!-- Image -->
+                <div class="relative z-10 flex items-center justify-center h-28">
+                    <img src="{{ l.image.url }}" alt="language test" class="max-h-60 object-contain transition duration-300 
+                     ">
+                </div>
+
+
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
 <!-- WHY CHOOSE US -->
 
-<section class="py-20 bg-primary text-white">
+<section class="py-24 bg-primary text-white">
 
     <div class="max-w-7xl mx-auto px-6 text-center">
 
 
-        <h2 class="text-2xl md:text-3xl font-bold mb-14">
+        <h2 class="text-2xl md:text-3xl font-bold mb-16">
             Why Choose SpeakAbroad
         </h2>
 
@@ -263,134 +317,401 @@
 
 
 
-<!-- STUDY DESTINATIONS -->
 
-<section class="py-24 bg-fixed bg-center bg-cover relative"
-    style="background-image:url('https://images.unsplash.com/photo-1505761671935-60b3a7427bad');">
+<!-- OFFICE GALLERY (ACCORDION GALLERY COMPONENT) -->
+<section class="py-24 bg-[#080c16] text-white relative overflow-hidden">
+    <!-- Ambient Background Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-blue-500/10 blur-[130px] rounded-full pointer-events-none"></div>
 
-    <!-- overlay -->
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
 
-    <div class="absolute inset-0 bg-black/60"></div>
+        <!-- Heading -->
+        <div class="text-center mb-14" data-aos="fade-up">
+            <span class="text-blue-400 font-semibold tracking-widest uppercase text-xs md:text-sm">Our Headquarters</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-2 text-white">Experience Our Office Spaces</h2>
+            <p class="text-gray-400 mt-3 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+                Take a visual tour of our modern headquarters — welcoming consultation suites and dedicated workspaces designed for your global journey.
+            </p>
+        </div>
 
-    <div class="relative max-w-7xl mx-auto px-6">
+        <!-- Accordion Gallery Component -->
+        <div id="office-gallery" class="accordion-gallery" role="list" aria-label="Office accordion gallery">
 
-        <h2 class="text-2xl md:text-3xl text-center font-bold text-white mb-16">
-            Popular Study Destinations
-        </h2>
-
-        <div class="grid md:grid-cols-3 gap-10">
-
-            <!-- Austria -->
-
-            <div class="p-6 rounded-xl backdrop-blur-md bg-white/10 border border-white/20
-shadow-lg hover:-translate-y-2 hover:bg-white/20 transition duration-300 text-white">
-
-                <h3 class="text-xl font-semibold text-primary mb-4">
-                    Austria
-                </h3>
-
-                <ul class="space-y-2 text-sm text-gray-200">
-
-                    <li>• High quality European education</li>
-                    <li>• Low tuition public universities</li>
-                    <li>• Globally recognized degrees</li>
-                    <li>• Strong research and innovation</li>
-                    <li>• Schengen visa benefits</li>
-
-                </ul>
-
+            <!-- Panel 1: Executive Counseling Suite -->
+            <div class="ag-panel" role="listitem" tabindex="0" aria-label="Executive Counseling Suite">
+                <span class="ag-panel__frame">
+                    <span class="ag-panel__media">
+                        <img src="{% static 'images/office/office_1.jpg' %}" alt="Executive Counseling Suite" draggable="false">
+                    </span>
+                    <span class="ag-panel__overlay" aria-hidden="true"></span>
+                </span>
+                <span class="ag-panel__label" aria-hidden="true">
+                    <span class="ag-panel__bar"></span>
+                    <span class="ag-panel__text">Executive Counseling Suite</span>
+                </span>
             </div>
 
-            <!-- Georgia -->
-
-            <div class="p-6 rounded-xl backdrop-blur-md bg-white/10 border border-white/20
-shadow-lg hover:-translate-y-2 hover:bg-white/20 transition duration-300 text-white">
-
-                <h3 class="text-xl font-semibold text-primary mb-4">
-                    Georgia
-                </h3>
-
-                <ul class="space-y-2 text-sm text-gray-200">
-
-                    <li>• Affordable tuition fees</li>
-                    <li>• Fast growing study destination</li>
-                    <li>• High visa approval rate</li>
-                    <li>• IELTS not mandatory</li>
-                    <li>• Student friendly environment</li>
-
-                </ul>
-
+            <!-- Panel 2: Advisory Workspace -->
+            <div class="ag-panel" role="listitem" tabindex="0" aria-label="Advisory Workspace">
+                <span class="ag-panel__frame">
+                    <span class="ag-panel__media">
+                        <img src="{% static 'images/office/office_2.jpg' %}" alt="Advisory Workspace" draggable="false">
+                    </span>
+                    <span class="ag-panel__overlay" aria-hidden="true"></span>
+                </span>
+                <span class="ag-panel__label" aria-hidden="true">
+                    <span class="ag-panel__bar"></span>
+                    <span class="ag-panel__text">Advisory Workspace</span>
+                </span>
             </div>
 
-            <!-- Netherlands -->
-
-            <div class="p-6 rounded-xl backdrop-blur-md bg-white/10 border border-white/20
-shadow-lg hover:-translate-y-2 hover:bg-white/20 transition duration-300 text-white">
-
-                <h3 class="text-xl font-semibold text-primary mb-4">
-                    Netherlands
-                </h3>
-
-                <ul class="space-y-2 text-sm text-gray-200">
-
-                    <li>• English speaking European country</li>
-                    <li>• World class universities</li>
-                    <li>• Strong job market</li>
-                    <li>• Post study work opportunities</li>
-                    <li>• High visa success rate</li>
-
-                </ul>
-
+            <!-- Panel 3: Reception & Waiting Lounge (Default Active) -->
+            <div class="ag-panel ag-panel--active" role="listitem" tabindex="0" aria-label="Reception & Waiting Lounge" aria-current="true">
+                <span class="ag-panel__frame">
+                    <span class="ag-panel__media">
+                        <img src="{% static 'images/office/office_3.jpg' %}" alt="Reception & Waiting Lounge" draggable="false">
+                    </span>
+                    <span class="ag-panel__overlay" aria-hidden="true"></span>
+                </span>
+                <span class="ag-panel__label" aria-hidden="true">
+                    <span class="ag-panel__bar"></span>
+                    <span class="ag-panel__text">Reception & Waiting Lounge</span>
+                </span>
             </div>
 
-            <!-- Denmark -->
-
-            <div class="p-6 rounded-xl backdrop-blur-md bg-white/10 border border-white/20
-shadow-lg hover:-translate-y-2 hover:bg-white/20 transition duration-300 text-white">
-
-                <h3 class="text-xl font-semibold text-primary mb-4">
-                    Denmark
-                </h3>
-
-                <ul class="space-y-2 text-sm text-gray-200">
-
-                    <li>• Modern education system</li>
-                    <li>• Research based learning</li>
-                    <li>• Scholarship opportunities</li>
-                    <li>• High quality of life</li>
-                    <li>• Work visa options</li>
-
-                </ul>
-
+            <!-- Panel 4: Welcome Gallery -->
+            <div class="ag-panel" role="listitem" tabindex="0" aria-label="Welcome Gallery">
+                <span class="ag-panel__frame">
+                    <span class="ag-panel__media">
+                        <img src="{% static 'images/office/office_4.jpg' %}" alt="Welcome Gallery" draggable="false">
+                    </span>
+                    <span class="ag-panel__overlay" aria-hidden="true"></span>
+                </span>
+                <span class="ag-panel__label" aria-hidden="true">
+                    <span class="ag-panel__bar"></span>
+                    <span class="ag-panel__text">Welcome Gallery</span>
+                </span>
             </div>
 
-            <!-- Italy -->
-
-            <div class="p-6 rounded-xl backdrop-blur-md bg-white/10 border border-white/20
-shadow-lg hover:-translate-y-2 hover:bg-white/20 transition duration-300 text-white">
-
-                <h3 class="text-xl font-semibold text-primary mb-4">
-                    Italy
-                </h3>
-
-                <ul class="space-y-2 text-sm text-gray-200">
-
-                    <li>• Historic universities</li>
-                    <li>• Affordable tuition</li>
-                    <li>• Scholarships available</li>
-                    <li>• English taught programs</li>
-                    <li>• Schengen visa benefits</li>
-
-                </ul>
-
+            <!-- Panel 5: Student Discussion Cabin -->
+            <div class="ag-panel" role="listitem" tabindex="0" aria-label="Student Discussion Cabin">
+                <span class="ag-panel__frame">
+                    <span class="ag-panel__media">
+                        <img src="{% static 'images/office/office_5.jpg' %}" alt="Student Discussion Cabin" draggable="false">
+                    </span>
+                    <span class="ag-panel__overlay" aria-hidden="true"></span>
+                </span>
+                <span class="ag-panel__label" aria-hidden="true">
+                    <span class="ag-panel__bar"></span>
+                    <span class="ag-panel__text">Student Discussion Cabin</span>
+                </span>
             </div>
 
         </div>
 
     </div>
-
 </section>
 
+<!-- ACCORDION GALLERY CSS -->
+<style>
+    .accordion-gallery {
+        --ag-accent: #ffffff;
+        --ag-overlay: #060010;
+        --ag-text: #ffffff;
+        --ag-gap: 12px;
+        --ag-radius: 16px;
+        --ag-media-size: 320px;
+
+        display: flex;
+        flex-direction: row;
+        gap: var(--ag-gap);
+        width: 100%;
+        max-width: 100%;
+        height: 480px;
+        perspective: 1400px;
+        perspective-origin: 50% 50%;
+    }
+
+    .accordion-gallery--vertical {
+        flex-direction: column;
+    }
+
+    .ag-panel {
+        position: relative;
+        flex: 1 1 0;
+        min-width: 0;
+        min-height: 0;
+        overflow: hidden;
+        border-radius: var(--ag-radius);
+        cursor: pointer;
+        display: block;
+        text-decoration: none;
+        outline: none;
+        transform-style: preserve-3d;
+        transform-origin: center center;
+        background: #0a0713;
+        box-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.8);
+        will-change: flex-grow, transform;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .ag-panel:focus-visible {
+        box-shadow:
+            0 0 0 2px var(--ag-accent),
+            0 10px 30px -18px rgba(0, 0, 0, 0.8);
+    }
+
+    .ag-panel__frame {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        border-radius: inherit;
+    }
+
+    .ag-panel__media {
+        --ag-gray: 1;
+        --ag-dim: 0.35;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--ag-media-size);
+        height: 100%;
+        filter: grayscale(var(--ag-gray));
+        will-change: transform, filter;
+    }
+
+    .accordion-gallery--vertical .ag-panel__media {
+        width: 100%;
+        height: var(--ag-media-size);
+    }
+
+    .ag-panel__media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    .ag-panel__overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background:
+            linear-gradient(180deg, transparent 45%, rgba(6, 0, 16, 0.85) 100%),
+            rgba(6, 0, 16, var(--ag-dim, 0.35));
+    }
+
+    .ag-panel__label {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .ag-panel__bar {
+        flex: 0 0 auto;
+        width: 3px;
+        height: 26px;
+        border-radius: 3px;
+        background: var(--ag-accent);
+        opacity: 0;
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    }
+
+    .ag-panel__text {
+        color: var(--ag-text);
+        font-family: inherit;
+        font-weight: 600;
+        font-size: clamp(1rem, 1.35vw, 1.35rem);
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        opacity: 0;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+    }
+
+    @media (max-width: 640px) {
+        .accordion-gallery {
+            flex-direction: column;
+            perspective: none;
+            height: auto !important;
+        }
+
+        .ag-panel {
+            min-height: 84px;
+            transform: none !important;
+        }
+
+        .ag-panel--active {
+            min-height: 230px;
+        }
+
+        .accordion-gallery .ag-panel__media {
+            width: 100%;
+            height: var(--ag-media-size);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .ag-panel,
+        .ag-panel__media {
+            will-change: auto;
+        }
+    }
+</style>
+
+<!-- GSAP DEPENDENCY & ACCORDION GALLERY JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+    (function () {
+        function initAccordionGallery() {
+            const el = document.getElementById("office-gallery");
+            if (!el || typeof gsap === "undefined") return;
+
+            const panels = el.querySelectorAll(".ag-panel");
+            const mediaEls = el.querySelectorAll(".ag-panel__media");
+            const barEls = el.querySelectorAll(".ag-panel__bar");
+            const textEls = el.querySelectorAll(".ag-panel__text");
+
+            const count = panels.length;
+            let active = 2; // defaultIndex = 2
+            let mediaSize = 320;
+            let tl = null;
+            let isVertical = window.innerWidth <= 640;
+
+            const expandRatio = 0.52;
+            const duration = 0.6;
+            const ease = "power3.out";
+            const parallax = 0.5;
+            const tilt = 8;
+            const stagger = 0.06;
+            const grayscale = true;
+            const gap = 12;
+
+            const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            function applyLayout(animate = true) {
+                if (!panels.length) return;
+                isVertical = window.innerWidth <= 640;
+
+                const r = Math.min(Math.max(expandRatio, 0.2), 0.9);
+                const grow = count > 1 ? (r * (count - 1)) / (1 - r) : 1;
+
+                if (tl) tl.kill();
+                const dur = animate && !prefersReduced ? duration : 0;
+                tl = gsap.timeline();
+
+                panels.forEach((panel, i) => {
+                    const isActive = i === active;
+                    panel.classList.toggle("ag-panel--active", isActive);
+                    panel.setAttribute("aria-current", isActive ? "true" : "false");
+
+                    const rot = isActive ? 0 : i < active ? tilt : -tilt;
+                    const rotProp = isVertical ? { rotateX: -rot } : { rotateY: rot };
+
+                    tl.to(panel, { flexGrow: isActive ? grow : 1, ...rotProp, duration: dur, ease }, 0);
+
+                    const media = mediaEls[i];
+                    if (media) {
+                        const drift = Math.max(-1.5, Math.min(1.5, active - i));
+                        const shift = drift * parallax * mediaSize * 0.06;
+                        const gray = grayscale ? (isActive ? 0 : 1) : 0;
+
+                        tl.to(media, {
+                            xPercent: -50,
+                            yPercent: -50,
+                            x: isVertical ? 0 : (isActive ? 0 : shift),
+                            y: isVertical ? (isActive ? 0 : shift) : 0,
+                            filter: `grayscale(${gray})`,
+                            "--ag-dim": isActive ? 0 : 0.35,
+                            duration: dur,
+                            ease
+                        }, 0);
+                    }
+
+                    const bar = barEls[i];
+                    const text = textEls[i];
+                    if (bar && text) {
+                        if (isActive) {
+                            tl.to([bar, text], { opacity: 1, x: 0, duration: dur, ease, stagger: prefersReduced ? 0 : stagger }, 0);
+                        } else {
+                            tl.to([bar, text], { opacity: 0, x: -14, duration: dur * 0.6, ease }, 0);
+                        }
+                    }
+                });
+            }
+
+            function measure() {
+                const rect = el.getBoundingClientRect();
+                isVertical = window.innerWidth <= 640;
+                const total = isVertical ? rect.height : rect.width;
+                const usable = Math.max(total - gap * (count - 1), 120);
+                const size = Math.max(140, usable * Math.min(Math.max(expandRatio, 0.2), 0.9) * 1.22);
+                mediaSize = size;
+                el.style.setProperty("--ag-media-size", `${size}px`);
+                applyLayout(false);
+            }
+
+            measure();
+            const ro = new ResizeObserver(measure);
+            ro.observe(el);
+
+            panels.forEach((panel, i) => {
+                panel.addEventListener("mouseenter", () => {
+                    if (active !== i) {
+                        active = i;
+                        applyLayout(true);
+                    }
+                });
+
+                panel.addEventListener("click", (e) => {
+                    if (active !== i) {
+                        e.preventDefault();
+                        active = i;
+                        applyLayout(true);
+                    }
+                });
+
+                panel.addEventListener("focus", () => {
+                    if (active !== i) {
+                        active = i;
+                        applyLayout(true);
+                    }
+                });
+
+                panel.addEventListener("keydown", (e) => {
+                    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+                        e.preventDefault();
+                        active = (active + 1) % count;
+                        applyLayout(true);
+                        panels[active].focus();
+                    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+                        e.preventDefault();
+                        active = (active - 1 + count) % count;
+                        applyLayout(true);
+                        panels[active].focus();
+                    }
+                });
+            });
+
+            applyLayout(false);
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", initAccordionGallery);
+        } else {
+            initAccordionGallery();
+        }
+    })();
+</script>
 
 <!-- LANGUAGE TESTS -->
 
@@ -485,7 +806,7 @@ shadow-lg hover:-translate-y-2 hover:bg-white/20 transition duration-300 text-wh
 
 <!-- CTA -->
 
-<section class="bg-primary py-20 text-center text-white">
+<section class="bg-primary py-24 text-center text-white">
 
 
     <div class="max-w-4xl mx-auto px-6">
