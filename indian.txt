@@ -42,7 +42,7 @@
         <div>
 
             <h2 class="text-4xl font-bold text-primary mb-6">
-                Study in India with SpeakAbroad
+                Study in India with Speakabroad
             </h2>
 
             <p class="text-gray-600 mb-6 text-justify">
