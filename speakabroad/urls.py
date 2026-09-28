@@ -1,8 +1,9 @@
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve
 from app import views
 
 urlpatterns = [
@@ -13,9 +14,9 @@ urlpatterns = [
     path('Study_in_abroad/', views.Study_in_abroad, name='Study_in_abroad'),
     path('faq/', views.faq, name='faq'),
     path('contact/', views.contact, name='contact'),
+    re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 ]
 
-
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

@@ -19,8 +19,8 @@ db.sqlite3
 local_settings.py
 *.log
 
-# Media uploads (user-uploaded files — not source code)
-media/
+# Media files tracked for site assets
+# media/
 
 # Node
 node_modules/
