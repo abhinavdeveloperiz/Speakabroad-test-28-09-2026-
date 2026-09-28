@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import pymysql
+pymysql.version_info = (2, 2, 7, "final", 0)
 pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -10,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-#q1j%m5tp7sansym3hr#=bea6q@g2nv#c-m96!h^&j_s-kh7+4')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = ['*']
 
@@ -57,16 +58,25 @@ TEMPLATES = [
 WSGI_APPLICATION = 'speakabroad.wsgi.application'
 
 # Database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DB_NAME', 'inspirez_speakabroad'),
-        'USER': os.environ.get('DB_USER', 'inspirez_speakabroad'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', '@pass#192018@'),
-        'HOST': os.environ.get('DB_HOST', 's3032.bom1.stableserver.net'),
-        'PORT': os.environ.get('DB_PORT', '3306'),
+# Default to SQLite for standalone demo deployments on Render, or MySQL if DB_ENGINE=mysql
+if os.environ.get('DB_ENGINE', 'sqlite') == 'mysql':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ.get('DB_NAME', 'inspirez_speakabroad'),
+            'USER': os.environ.get('DB_USER', 'inspirez_speakabroad'),
+            'PASSWORD': os.environ.get('DB_PASSWORD', '@pass#192018@'),
+            'HOST': os.environ.get('DB_HOST', 's3032.bom1.stableserver.net'),
+            'PORT': os.environ.get('DB_PORT', '3306'),
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
